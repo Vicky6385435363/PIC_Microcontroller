@@ -1,0 +1,132 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"1 led_switch.c
+[; ;led_switch.c: 1: unsigned char *ipop_select = (unsigned char*) 0x87;
+[v _ipop_select `*uc ~T0 @X0 1 e ]
+[i _ipop_select
+-> -> 135 `i `*uc
+]
+"2
+[; ;led_switch.c: 2: unsigned char *ipop_decide = (unsigned char*) 0x07;
+[v _ipop_decide `*uc ~T0 @X0 1 e ]
+[i _ipop_decide
+-> -> 7 `i `*uc
+]
+"3
+[; ;led_switch.c: 3: unsigned char *switch_led = (unsigned char*) 0x86;
+[v _switch_led `*uc ~T0 @X0 1 e ]
+[i _switch_led
+-> -> 134 `i `*uc
+]
+"4
+[; ;led_switch.c: 4: unsigned char *switchled = (unsigned char*) 0x06;
+[v _switchled `*uc ~T0 @X0 1 e ]
+[i _switchled
+-> -> 6 `i `*uc
+]
+"5
+[; ;led_switch.c: 5: unsigned char *option_reg = (unsigned char*) 0x81;
+[v _option_reg `*uc ~T0 @X0 1 e ]
+[i _option_reg
+-> -> 129 `i `*uc
+]
+"6
+[; ;led_switch.c: 6: void led() {
+[v _led `(v ~T0 @X0 1 ef ]
+{
+[e :U _led ]
+[f ]
+"7
+[; ;led_switch.c: 7:     *ipop_select = 0x00;
+[e = *U _ipop_select -> -> 0 `i `uc ]
+"8
+[; ;led_switch.c: 8:     *ipop_decide = 0xFC;
+[e = *U _ipop_decide -> -> 252 `i `uc ]
+"9
+[; ;led_switch.c: 9:     *switch_led = 0xF0;
+[e = *U _switch_led -> -> 240 `i `uc ]
+"10
+[; ;led_switch.c: 10:     *switchled = 0xF0;
+[e = *U _switchled -> -> 240 `i `uc ]
+"11
+[; ;led_switch.c: 11:     *option_reg &= 0x7F;
+[e =& *U _option_reg -> -> 127 `i `uc ]
+"12
+[; ;led_switch.c: 12: }
+[e :UE 1 ]
+}
+"13
+[; ;led_switch.c: 13: void l_switch() {
+[v _l_switch `(v ~T0 @X0 1 ef ]
+{
+[e :U _l_switch ]
+[f ]
+"14
+[; ;led_switch.c: 14:     unsigned char value;
+[v _value `uc ~T0 @X0 1 a ]
+"15
+[; ;led_switch.c: 15:     value = *switchled;
+[e = _value *U _switchled ]
+"16
+[; ;led_switch.c: 16:     switch (value) {
+[e $U 4  ]
+{
+"17
+[; ;led_switch.c: 17:         case 0xE0:
+[e :U 5 ]
+"18
+[; ;led_switch.c: 18:             *ipop_decide = 0x01;
+[e = *U _ipop_decide -> -> 1 `i `uc ]
+"19
+[; ;led_switch.c: 19:             break;
+[e $U 3  ]
+"20
+[; ;led_switch.c: 20:         case 0xD0:
+[e :U 6 ]
+"21
+[; ;led_switch.c: 21:             *ipop_decide = 0x02;
+[e = *U _ipop_decide -> -> 2 `i `uc ]
+"22
+[; ;led_switch.c: 22:             break;
+[e $U 3  ]
+"23
+[; ;led_switch.c: 23:         case 0xB0:
+[e :U 7 ]
+"24
+[; ;led_switch.c: 24:             *ipop_decide = 0x03;
+[e = *U _ipop_decide -> -> 3 `i `uc ]
+"25
+[; ;led_switch.c: 25:             break;
+[e $U 3  ]
+"26
+[; ;led_switch.c: 26:         case 0x70:
+[e :U 8 ]
+"27
+[; ;led_switch.c: 27:             *ipop_decide = 0x00;
+[e = *U _ipop_decide -> -> 0 `i `uc ]
+"28
+[; ;led_switch.c: 28:             break;
+[e $U 3  ]
+"29
+[; ;led_switch.c: 29:         default:
+[e :U 9 ]
+"30
+[; ;led_switch.c: 30:             *ipop_decide = 0x00;
+[e = *U _ipop_decide -> -> 0 `i `uc ]
+"31
+[; ;led_switch.c: 31:             break;
+[e $U 3  ]
+"32
+[; ;led_switch.c: 32:     }
+}
+[e $U 3  ]
+[e :U 4 ]
+[e [\ _value , $ -> 224 `i 5
+ , $ -> 208 `i 6
+ , $ -> 176 `i 7
+ , $ -> 112 `i 8
+ 9 ]
+[e :U 3 ]
+"33
+[; ;led_switch.c: 33: }
+[e :UE 2 ]
+}
